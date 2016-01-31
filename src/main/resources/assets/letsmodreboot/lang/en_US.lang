@@ -1,1 +1,13 @@
-item.letsmodreboot:mapleLeaf.name=Maple Leaf
+# Keys
+keys.letsmodreboot.category=Let's Mod Reboot
+keys.letsmodreboot.charge=Charge
+keys.letsmodreboot.release=Release
+
+# Items
+item.letsmodreboot:MapleLeaf.name=Maple Leaf
+
+# Blocks
+tile.letsmodreboot:flag.name=Canadian Flag Block
+
+# Creative Tabs
+itemGroup.letsmodreboot=Let's Mod Reboot

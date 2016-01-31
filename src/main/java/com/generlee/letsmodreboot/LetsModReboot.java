@@ -1,8 +1,11 @@
 package com.generlee.letsmodreboot;
 
 
+import com.generlee.letsmodreboot.client.handler.KeyInputEventHandler;
 import com.generlee.letsmodreboot.handler.ConfigurationHandler;
+import com.generlee.letsmodreboot.init.ModBlocks;
 import com.generlee.letsmodreboot.init.ModItems;
+import com.generlee.letsmodreboot.init.Recipes;
 import com.generlee.letsmodreboot.proxy.IProxy;
 import com.generlee.letsmodreboot.reference.Reference;
 import com.generlee.letsmodreboot.utility.LogHelper;
@@ -24,15 +27,23 @@ public class LetsModReboot {
     public static IProxy proxy;
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event)
+    {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
+        proxy.registerKeyBindings();
+
         ModItems.init();
+        ModBlocks.init();
         LogHelper.info("Pre Initialization Complete ");
     }
 
     @Mod.EventHandler
-    public void Init(FMLInitializationEvent event){
+    public void Init(FMLInitializationEvent event)
+    {
+        FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
+        Recipes.init();
         LogHelper.info("Initialization Complete ");
     }
 
